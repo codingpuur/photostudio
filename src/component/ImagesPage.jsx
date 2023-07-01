@@ -11,7 +11,7 @@ const ImagesPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log(images)
+  
 
   useEffect(() => {
     const fetchImages = async () => {

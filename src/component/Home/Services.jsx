@@ -1,9 +1,10 @@
 import React from 'react'
-import one from '../../assets/images/one.avif'
-import two from '../../assets/images/six.avif'
+import one from '../../assets/services/maternity.jpg'
+import two from '../../assets/services/wedding.jpg'
 import three from '../../assets/images/three.jpg'
 import four from '../../assets/images/four.avif'
 import five from '../../assets/images/five.avif'
+import { Link } from 'react-router-dom'
 
 // import six from '../../assets/images/six.avif'
 
@@ -11,10 +12,10 @@ import five from '../../assets/images/five.avif'
 
 const Services = () => {
     const photos = [
-        { id: 1, src: one, title: 'Wedding' },
-        { id: 2, src: two, title: 'pre Wedding' },
-        { id: 3, src: three, title: 'Meternity' },
-        { id: 4, src: four, title: 'Kids' },
+        { id: 1, src: two, title: 'Wedding' ,link:'wedding' },
+        { id: 2, src: two, title: 'Pre Wedding',link:'prewedding' },
+        { id: 3, src: one, title: 'Maternity' ,link:'maternity' },
+        { id: 4, src: four, title: 'Kids' ,link:'kids'},
        
         
         // Add more photos here
@@ -22,7 +23,7 @@ const Services = () => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 ">
     {photos.map(photo => (
-      <div
+      <Link to ={photo.link}
         key={photo.id}
         className="relative overflow-hidden rounded-lg cursor-pointer   p-1 md:p-8 shadow-2xl  space-y-2 md:space-y-5"
       >
@@ -34,7 +35,7 @@ const Services = () => {
         />
         <div className=' text-center  font-bold text-lg '>{photo.title}</div>
        
-      </div>
+      </Link>
     ))}
   </div>
   )
