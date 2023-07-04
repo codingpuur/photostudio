@@ -19,7 +19,7 @@ const Home = () => {
       
 
       <div className="mt-10 space-y-12">
-        <div className=" space-y-7">
+        {/* <div className=" space-y-7">
           <h1 className=" text-center text-3xl">Biography...</h1>
           <p className="  max-w-4xl  text-center  mx-auto">
             Mr. Sunder Dipak the man behind the show has been associated with
@@ -47,11 +47,11 @@ const Home = () => {
             this industry people promise a lot but a few deliver, few years down
             the line everything wears out but its the album that stands out.
           </p>
-        </div>
+        </div> */}
         <div className="  w-full  h-96  lg:h-fit  overflow-hidden ">
           <img className="  w-full h-full object-cover object-center " src={one} alt="" />
         </div>
-        <div className=" space-y-7">
+        {/* <div className=" space-y-7">
           <h1 className=" text-center text-3xl">About Us...</h1>
           <p className="  max-w-4xl  text-center  mx-auto">
             Dipak studios.com powered by imaging experts Mohan & Raman Dipak is
@@ -80,7 +80,7 @@ const Home = () => {
             locations head office in Faridabad and wedding studios in Delhi &
             Gurgaon.
           </p>
-        </div>
+        </div> */}
        <div className=" w-full">
         <div className=" w-full"><img className="    w-full h-[50vh]  lg:h-[170vh] object-cover object-center" src={two} alt="" /></div>
         <div className=" w-full"><img className=" w-full" src={five} alt="" /></div>

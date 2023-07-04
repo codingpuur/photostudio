@@ -13,18 +13,18 @@ const Footer = () => {
               alt="LOGO"
             />
           </div>
-          <div className=" list-none flex gap-4 justify-center text-lg ">
-            <a href="https://www.facebook.com/thephotojunction/">
+          <div className=" list-none flex gap-4 justify-center text-3xl  ">
+            <a className=" text-blue-500" href="https://www.facebook.com/thephotojunction/">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
           
-            <a href="https://www.youtube.com/channel/UC2FdDI8tF5jc1SgHI2bvHeQ">
+            <a className=" text-red-700" href="https://www.youtube.com/channel/UC2FdDI8tF5jc1SgHI2bvHeQ">
               <ion-icon name="logo-youtube"></ion-icon>
             </a>
-            <a href="https://www.instagram.com/thephotojunction/">
+            <a className="  text-pink-400" href="https://www.instagram.com/thephotojunction/">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            <a href="https://www.linkedin.com/in/the-photo-junction-b44a4121b/">
+            <a className=" text-blue-600" href="https://www.linkedin.com/in/the-photo-junction-b44a4121b/">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </div>
@@ -52,6 +52,12 @@ const Footer = () => {
             </p>
             <p>
               Phone no: <span>971841001</span>
+            </p>
+            <p>
+              Phone no: <span>971851001</span>
+            </p>
+            <p>
+              Phone no: <span>9315030406</span>
             </p>
             <p>
               Email: <span>thephotojunction0027@gmail.com</span>

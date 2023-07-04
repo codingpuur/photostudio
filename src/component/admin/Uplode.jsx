@@ -3,15 +3,17 @@ import axios from 'axios';
 import Adminlink from './Adminlink';
 
 function Uplode() {
-  const [image, setImage] = useState(null);
-  const [category, setCategory] = useState('');
-  const [name, setName] = useState('');
+  const [image, setImage] = useState('');
+  const [category, setCategory] = useState("wedding");
+  const [name, setName] = useState("Kapil-Aastha");
   const [value, setvalue] = useState(null);
-
+ 
+  console.log( image.image)
   const handleImageChange = (event) => {
+    event.preventDefault();
     setImage(event.target.files[0]);
   
-    console.log(URL.createObjectURL(files))
+    const file = event.target.files[0];
     setvalue(URL.createObjectURL(file));
   };
 
@@ -62,6 +64,7 @@ function Uplode() {
     </div>
     <input id="dropzone-file" type="file" className="hidden"  onChange={handleImageChange} />
     <img className='mt-4 mb-4 w-40 h-auto object-contain' src={value} alt="" />
+    {/* <h1>{image.name}</h1> */}
 </label>
 </div> 
 <div className=' flex justify-center items-center space-x-10'>
@@ -70,14 +73,16 @@ function Uplode() {
      className='h-10  bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  '
       type="text"
       placeholder="Category"
-      value={category}
+      // value={category}
+      value="wedding"
       onChange={handleCategoryChange}
     />
     <input
             className='h-10 bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  '
       type="text"
       placeholder="Name"
-      value={name}
+      // value={name}
+      value="Kapil-Aastha"
       onChange={handleNameChange}
     />
      
