@@ -8,7 +8,7 @@ import ImagesPage from './component/ImagesPage';
 import Kids from './pages/Kids';
 import Admin from './component/admin/Admin';
 import NotFound from './component/NotFound';
-
+import Uplode from './component/admin/Uplode';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   return (
@@ -19,9 +19,10 @@ function App() {
         <div className="sticky top-0 z-10">
           <Navbar />
         </div>
-        <div>
+        <div className=' min-h-screen'>
           <Routes>
           <Route path="/admin" element={isLoggedIn ? <Admin /> : <Home />} />
+          <Route path="/admin/uplode" element={ <Uplode />} />
             <Route exact path="/" element={<Home />} />
             <Route path="/:categoryName" element={<Kids />} />
             <Route path="/:categoryName/:name" element={<ImagesPage />} />

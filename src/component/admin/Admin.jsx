@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Adminlink from './Adminlink';
+ 
 
 const Admin = () => {
   const [images, setImages] = useState([]);
@@ -7,24 +9,40 @@ const Admin = () => {
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const [editImageId, setEditImageId] = useState(null);
-  const [filterCategory, setFilterCategory] = useState('');
-  const [filterName, setFilterName] = useState('');
-  const [value, setvalue] = useState(null);
+ const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState();
+
 
   useEffect(() => {
     fetchImages();
-  }, []);
+  }, [limit ,page]);
+
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+    
+  };
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+  const handleLimitChange = (event) => {
+    setLimit(event.target.value);
+  };
 
   const fetchImages = async () => {
     try {
       setLoading(true);
       const response = await axios.get('https://tpj.onrender.com/images', {
+
         params: {
-          category: filterCategory,
-          name: filterName,
+          category:category,
+          name: name,
+          limit:limit,
+          page:page,
         },
       });
       setImages(response.data.images);
+      setTotalPages(response.data.totalPages);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -32,34 +50,8 @@ const Admin = () => {
     }
   };
 
-  const handleUpload = async (event) => {
-      
-      event.preventDefault();
-      const file = event.target.files[0];
-      setvalue(URL.createObjectURL(file));
-      try {
-        const formData = new FormData();
-       
-      formData.append('image', event.target.files[0]);
-      formData.append('category', category);
-      formData.append('name', name);
-      console.log(name)
-    //   console.log(category)
-      console.log(event.target.files)
-
-      setLoading(true);
-      await axios.post('https://tpj.onrender.com/upload', formData);
-      setLoading(false);
-
-      setCategory('');
-      setName('');
-
-      fetchImages();
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-    }
-  };
+  
+ 
 
   const handleEdit = (imageId) => {
     setEditImageId(imageId);
@@ -76,8 +68,8 @@ const Admin = () => {
       await axios.put(`https://tpj.onrender.com/images/${imageId}`, updatedImage);
       setLoading(false);
 
-      setCategory('');
-      setName('');
+      setCategory(category);
+      setName(name);
       setEditImageId(null);
 
       fetchImages();
@@ -101,54 +93,104 @@ const Admin = () => {
   };
 
   const handleFilter = async () => {
-    setFilterCategory(category);
-    setFilterName(name);
+    // setFilterCategory(category);
+    // setFilterName(name);
 
     fetchImages();
   };
 
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (page < totalPages) {
+      setPage(page + 1);
+    }
+  };
+ 
+
   return (
-    <div className=' z-20'>
-      <h1 className=' text-center'>Admin</h1>
 
-      <form className='  text-center' onSubmit={handleUpload}>
-        {/* <input type="file" onChange={handleUpload} /> */}
-        
-<div class="flex items-center  justify-center w-full  space-y-10">
-    <label for="dropzone-file" className="flex flex-col items-center justify-center w-11/12 md:w-1/2 h-fit border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg aria-hidden="true" className="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-        </div>
-        <input id="dropzone-file" type="file" className="hidden"  onChange={handleUpload} />
-        <img className='mt-4 mb-4 w-40 h-auto object-contain' src={value} alt="" />
-    </label>
-</div> 
+    <div className=' min-h-screen text-sm md:text-md    pt-10 z-20 space-y-4'>
+      <Adminlink/>
+      
+ 
+   <div className='md:flex    space-y-2  justify-end   md:space-x-10 pr-10  items-baseline   '>
 
+   
+      <div  className=' w-fit md:w-36 '>
+      
+      <select
+        id="countries"
+        value={category}
+        onChange={handleCategoryChange}
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option value="" disabled>
+          Choose a category
+        </option>
+        <option value="wedding">wedding</option>
+        <option value="prewedding">prewedding</option>
+        <option value="maternity">maternity</option>
+        <option value="kids">kids</option>
+     
+      </select>
+
+    
+    </div>
+      <div  className=' w-fit md:w-16 '>
+      
+      <select
+        id="countries"
+        value={limit}
+        onChange={handleLimitChange}
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+      >
+        <option value="" disabled>
+          Total images show
+        </option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+     
+      </select>
+
+    
+    </div>
+
+
+
+      <div  className=' flex  space-x-10'>
+
+         
         <input
+        className='h-10 bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  '
           type="text"
-          placeholder="Category"
+          placeholder="Enter Custom Category"
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
+       
+          onChange={handleCategoryChange}
         />
         <input
+        className='h-10 bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 '
           type="text"
           placeholder="Name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+       
+          onChange={handleNameChange}
         />
-        <div className=' flex mx-auto justify-between w-1/2 '>
-
         <button className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 ' type="button" onClick={handleFilter} disabled={loading}>
           Filter
         </button>
-        <button className='focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 ' type="submit" disabled={loading}>
-          Upload
-        </button>
         </div>
-      </form>
 
+        </div>
+        
       {loading ? (
         <p className=' text-center '>Loading...</p>
       ) : (
@@ -186,6 +228,27 @@ const Admin = () => {
           ))}
         </div>
       )}
+
+<div className="mt-4 flex justify-center items-center">
+        <button
+          onClick={handlePrevPage}
+          disabled={page === 1}
+          className={`mr-2 bg-gray-300 hover:bg-gray-400 text-gray-700 px-2 py-1 rounded ${
+            page === 1 && 'cursor-not-allowed'
+          }`}
+        >
+          Previous
+        </button>
+        <button
+          onClick={handleNextPage}
+          disabled={page === totalPages}
+          className={`bg-gray-300 hover:bg-gray-400 text-gray-700 px-2 py-1 rounded ${
+            page === totalPages && 'cursor-not-allowed'
+          }`}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };

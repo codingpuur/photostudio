@@ -28,7 +28,7 @@ const Footer = () => {
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </div>
-          <p>
+          <p  className=" text-center">
             Marketing manager :{" "}
             <span>
               {" "}
