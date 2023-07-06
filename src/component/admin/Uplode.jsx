@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Adminlink from './Adminlink';
+// import ImageUploader from './ImageUploader';
 
 function Uplode() {
   const [image, setImage] = useState('');
-  const [category, setCategory] = useState("wedding");
-  const [name, setName] = useState("Kapil-Aastha");
+  const [category, setCategory] = useState(null);
+  const [name, setName] = useState(null);
   const [value, setvalue] = useState(null);
  
   console.log( image.image)
@@ -50,7 +51,9 @@ function Uplode() {
   };
 
   return (
-  
+    <>
+      {/* <ImageUploader/> */}
+      
     <form className='   space-y-5 h-screen pt-10 text-center' onSubmit={handleSubmit}>
       <Adminlink/>
 
@@ -73,16 +76,16 @@ function Uplode() {
      className='h-10  bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  '
       type="text"
       placeholder="Category"
-      // value={category}
-      value="wedding"
+      value={category}
+      // value="wedding"
       onChange={handleCategoryChange}
     />
     <input
             className='h-10 bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  '
       type="text"
       placeholder="Name"
-      // value={name}
-      value="Kapil-Aastha"
+      value={name}
+      // value="Vishal-Payal"
       onChange={handleNameChange}
     />
      
@@ -95,6 +98,8 @@ function Uplode() {
     </button>
     </div>
   </form>
+  </>
+
     
   );
 }

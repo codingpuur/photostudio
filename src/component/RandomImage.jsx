@@ -11,7 +11,7 @@ const RandomImage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://tpj.onrender.com/images/person?category=wedding');
+      const response = await axios.get('https://tpj.onrender.com/images/person?category=gallery');
       setImages(response.data);
     } catch (error) {
       console.error(error);
@@ -28,9 +28,15 @@ const RandomImage = () => {
   };
 
   return (
-    <div className="flex flex-wrap mt-10">
+
+
+    <div  className='  space-y-5 md:space-y-10 mt-10'>
+     <h1 className=' text-3xl   text-center'> Gallery</h1>
+     <hr  className=' border-black w-9/12 mx-auto' />
+    
+    <div className=" grid  grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 w-9/12 mx-auto mt-10">
       <button
-        className="bg-blue-500 text-white px-4 py-2 mb-4 ml-auto"
+        className="bg-blue-500 text-white px-4 py-2 mb-4 ml-auto absolute"
         onClick={shuffleImages}
       >
         Shuffle Images
@@ -40,7 +46,7 @@ const RandomImage = () => {
           key={image._id}
           src={image.imageUrl}
           alt={image.alt}
-          className="w-48 h-48 object-cover rounded-md shadow-md m-2"
+          className=" object-cover  shadow-md m-2"
         />
       ))}
 
@@ -59,6 +65,7 @@ const RandomImage = () => {
           </button>
         </div>
       )}
+    </div>
     </div>
   );
 };

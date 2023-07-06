@@ -24,9 +24,7 @@ const Footer = () => {
             <a className="  text-pink-400" href="https://www.instagram.com/thephotojunction/">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            <a className=" text-blue-600" href="https://www.linkedin.com/in/the-photo-junction-b44a4121b/">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
+        
           </div>
           <p  className=" text-center">
             Marketing manager :{" "}
