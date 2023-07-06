@@ -71,7 +71,7 @@ Always passionate to serve those who are in pursuit of excellence
        </div>
         
        <div>
-          <h1 className=" text-center text-3xl">Our Services </h1>
+          <h1 className=" text-center text-3xl  md:border-b-2 border-black md:w-11/12 mx-auto  pb-10" >We Offer Services </h1>
           <Services/>
         </div>
 
