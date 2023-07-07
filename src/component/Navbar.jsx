@@ -63,7 +63,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/gallery"
-                className="block py-2 pl-3 pr-4 text-black  rounded md:bg-transparent  md:p-0 dark:text-black "
+                className="block py-2 pl-3 pr-4  text-white md:text-black  rounded md:bg-transparent  md:p-0  "
               >
                 Best Candid Shoot
               </Link>

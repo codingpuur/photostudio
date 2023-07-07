@@ -45,7 +45,7 @@ const Footer = () => {
           <h1 className="      ">Contact us :</h1>
           <div>
             <p className="w-72 md:w-44">
-              A-5, Main, Shohan Lal Marg, Suraj Kund Rd, opp cng pump, Pul
+              A-5, 3rd floor Main, Sohan Lal Marg, Suraj Kund Rd, opp cng pump, Pul
               Pehlad Pur, New Delhi, Delhi 110044
             </p>
             <p>

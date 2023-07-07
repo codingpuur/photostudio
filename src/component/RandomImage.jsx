@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const RandomImage = () => {
+const RandomImage = (props) => {
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [ props.category]);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://tpj.onrender.com/images/person?category=gallery');
+      const response = await axios.get(`https://tpj.onrender.com/images/person?category=${props.category}`);
       setImages(response.data);
     } catch (error) {
       console.error(error);

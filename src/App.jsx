@@ -10,6 +10,7 @@ import Admin from './component/admin/Admin';
 import NotFound from './component/NotFound';
 import Uplode from './component/admin/Uplode';
 import RandomImage from './component/RandomImage';
+// import "./App.css"
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   return (
@@ -25,7 +26,10 @@ function App() {
           <Route path="/admin" element={isLoggedIn ? <Admin /> : <Home />} />
           <Route path="/admin/uplode" element={ <Uplode />} />
             <Route exact path="/" element={<Home />} />
-            <Route path="/gallery" element={<RandomImage />} />
+            <Route path="/gallery" element={<RandomImage category="gallery" />} />
+            <Route path="/maternity" element={<RandomImage category="maternity" />} />
+            <Route path="/kids" element={<RandomImage category="kids" />} />
+
             <Route path="/:categoryName" element={<Kids />} />
             <Route path="/:categoryName/:name" element={<ImagesPage />} />
             <Route path="*" element={<NotFound />} />
