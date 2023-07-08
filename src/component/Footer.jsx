@@ -49,10 +49,10 @@ const Footer = () => {
               Pehlad Pur, New Delhi, Delhi 110044
             </p>
             <p>
-              Phone no: <span>971841001</span>
+              Phone no: <span>9718410001</span>
             </p>
             <p>
-              Phone no: <span>971851001</span>
+              Phone no: <span>9718510001</span>
             </p>
             <p>
               Phone no: <span>9315030406</span>
