@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.png";
+import logo2 from "../assets/link2.jpeg";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 
@@ -26,8 +27,8 @@ const Navbar = () => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center">
           <img
-            src={logo}
-            className=" h-12 w-44 md:h-10  md:w-40 border-white    object-cover object-top"
+            src={logo2}
+            className=" h-12 w-44 md:h-14  md:w-40 border-white    object-cover object-center   mix-blend-screen"
             alt="Logo"
           />
         </Link>
@@ -59,7 +60,7 @@ const Navbar = () => {
           }   w-full md:block md:w-auto`}
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:border-gray-700">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0   dark:border-gray-700">
             <li>
               <Link
                 to="/gallery"
