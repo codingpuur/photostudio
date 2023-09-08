@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import one from '../../assets/images/one.avif'
 // import two from '../../assets/images/two'
-import three from '../../assets/images/three.jpg'
+import three from '../../assets/images/three.avif'
 import four from '../../assets/images/four.avif'
 import five from '../../assets/images/five.avif'
 import six from '../../assets/images/six.avif'
-import seven from '../../assets/images/seven.jpg'
-import eight from '../../assets/images/eight.jpg'
-import nine from '../../assets/images/nine.jpg'
-import ten from '../../assets/images/ten.jpg'
-import eleven from '../../assets/images/eleven.jpg'
-import tweleve from '../../assets/images/tweleve.jpg'
+import seven from '../../assets/images/seven.avif'
+import eight from '../../assets/images/eight.avif'
+import nine from '../../assets/images/nine.avif'
+import ten from '../../assets/images/ten.avif'
+import eleven from '../../assets/images/eleven.avif'
+import tweleve from '../../assets/images/tweleve.avif'
 
 const Banner = () => {
   const images = [

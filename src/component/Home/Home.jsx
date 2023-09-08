@@ -1,12 +1,12 @@
 import React from "react";
 import Banner from "../Banner/Banner";
 
-import one from '../../assets/home/one.jpg'
+import one from '../../assets/home/one.avif'
 // src\assets\home\one.JPG
-import two from '../../assets/home/two.jpg'
+import two from '../../assets/home/two.avif'
 import three from '../../assets/home/three.jpg'
 import four from '../../assets/home/four.avif'
-import five from '../../assets/home/five.jpg'
+import five from '../../assets/home/five.avif'
 import six from '../../assets/home/six.avif'
 
 
@@ -41,7 +41,7 @@ Services Offered
           <p className="max-w-4xl     mx-auto">
 
             <h1>The services include the following:</h1>
-            <ul className=" list-disc">
+            <ul className=" list-disc list-inside">
               <li>Candid and traditional shots</li>
               <li>Videography</li>
               <li>Cinematic videos</li>
