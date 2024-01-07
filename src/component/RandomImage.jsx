@@ -11,7 +11,7 @@ const RandomImage = (props) => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://tpj.onrender.com/images/person?category=${props.category}`);
+      const response = await axios.get(`https://tpjbackend.vercel.app/images/person?category=${props.category}`);
       setImages(response.data);
     } catch (error) {
       console.error(error);

@@ -17,7 +17,7 @@
 //     const fetchImages = async () => {
 //       try {
 //         const response = await axios.get(
-//           `https://tpj.onrender.com/images/person?category=${categoryName}&name=${name}`
+//           `https://tpjbackend.vercel.app/images/person?category=${categoryName}&name=${name}`
 //         );
 //         setImages(response.data);
 //         setLoading(false);
@@ -96,7 +96,7 @@ const ImagesPage = () => {
     const fetchImages = async () => {
       try {
         await axios.get(
-          `https://tpj.onrender.com/images/person?category=${categoryName}&name=${name}`,
+          `https://tpjbackend.vercel.app/images/person?category=${categoryName}&name=${name}`,
           {
             onDownloadProgress: (progressEvent) => {
               const percentCompleted = Math.round(

@@ -13,7 +13,7 @@
 //     const fetchPhotos = async () => {
 //       try {
 //         const response = await axios.get(
-//           `https://tpj.onrender.com/unique/repeated/${categoryName}`
+//           `https://tpjbackend.vercel.app/unique/repeated/${categoryName}`
 //         ); 
 
 //         setPhotos(response.data);
@@ -70,7 +70,7 @@ const Kids = () => {
     const fetchPhotos = async () => {
       try {
         const response = await axios.get(
-          `https://tpj.onrender.com/unique/repeated/${categoryName}`,
+          `https://tpjbackend.vercel.app/unique/repeated/${categoryName}`,
           {
             onDownloadProgress: (progressEvent) => {
               const percentCompleted = Math.round(

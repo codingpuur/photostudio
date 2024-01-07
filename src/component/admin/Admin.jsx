@@ -32,7 +32,7 @@ const Admin = () => {
   const fetchImages = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('https://tpj.onrender.com/images', {
+      const response = await axios.get('https://tpjbackend.vercel.app/images', {
 
         params: {
           category:category,
@@ -65,7 +65,7 @@ const Admin = () => {
       };
 
       setLoading(true);
-      await axios.put(`https://tpj.onrender.com/images/${imageId}`, updatedImage);
+      await axios.put(`https://tpjbackend.vercel.app/images/${imageId}`, updatedImage);
       setLoading(false);
 
       setCategory(category);
@@ -82,7 +82,7 @@ const Admin = () => {
   const handleDelete = async (id) => {
     try {
       setLoading(true);
-      await axios.delete(`https://tpj.onrender.com/images/${id}`);
+      await axios.delete(`https://tpjbackend.vercel.app/images/${id}`);
       setLoading(false);
 
       fetchImages();

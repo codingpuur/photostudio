@@ -36,7 +36,7 @@ function Uplode() {
     formData.append('name', name);
 
     try {
-      const response = await axios.post('https://tpj.onrender.com/upload', formData, {
+      const response = await axios.post('https://tpjbackend.vercel.app/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
