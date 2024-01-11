@@ -26,7 +26,7 @@ const Footer = () => {
             </a>
         
           </div>
-          <p  className=" text-center">
+          {/* <p  className=" text-center">
             Marketing manager :{" "}
             <span>
               {" "}
@@ -39,7 +39,7 @@ const Footer = () => {
                 Deepanshu kathpalya
               </a>
             </span>{" "}
-          </p>
+          </p> */}
         </div>
         <div className="  space-y-6  md:space-y-14  flex flex-col justify-center items-center ">
           <h1 className="      ">Contact us :</h1>
@@ -51,9 +51,9 @@ const Footer = () => {
             <p>
               Phone no: <span>9718410001</span>
             </p>
-            <p>
+            {/* <p>
               Phone no: <span>9718510001</span>
-            </p>
+            </p> */}
             <p>
               Phone no: <span>9315030406</span>
             </p>
