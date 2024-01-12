@@ -48,12 +48,13 @@ const Footer = () => {
               A-5, 3rd floor Main, Sohan Lal Marg, Suraj Kund Rd, opp cng pump, Pul
               Pehlad Pur, New Delhi, Delhi 110044
             </p>
+                <p>
+              Phone no: <span>9718510001</span>
+            </p>
             <p>
               Phone no: <span>9718410001</span>
             </p>
-            {/* <p>
-              Phone no: <span>9718510001</span>
-            </p> */}
+        
             <p>
               Phone no: <span>9315030406</span>
             </p>
